@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 
 const PrivatePage = () => {
   const auth = useContext(AuthContext);
+  const handleLogout = async () => {
+    await auth.signout()
+    window.location.reload()
+  }
   return (
     <>
       <div className="container">
@@ -15,7 +19,7 @@ const PrivatePage = () => {
           <h3>E-mail: {auth.user?.email}</h3>
           <h3>Token: {auth.user?.token}</h3>
           <Link to="/"><button>Home</button></Link>
-          <Link to="/logout"><button>Sair</button></Link>
+          <button onClick={handleLogout}>Sair</button>
         </div>
       </div>
     </>

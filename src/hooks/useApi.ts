@@ -6,12 +6,23 @@ const api = axios.create({
 
 const useApi = () => ({
   validateToken: async (token: string) => {
-    const response = await api.post("/validate-token", { token });
-    return response.data;
+    const response = await api.get("/users");
+    const findUser = response.data.find((item) => {
+      const verifyToken = item.token === token;
+      if(verifyToken){
+        return item;
+      }else{
+        return null;
+      }
+    })
+    
+    return {
+      user: findUser,
+      token: findUser.token,
+    };
   },
   signin: async (email: string, password: string) => {
     const response = await api.get("/users");
-    console.log(response.data)
     const findUser = response.data.find((item) => {
       const verifyEmail = item.email === email;
       const verifyPassword = item.password === password;
@@ -26,7 +37,6 @@ const useApi = () => ({
       }
     })
 
-    console.log(findUser)
     
     return {
       user: findUser,
@@ -37,8 +47,7 @@ const useApi = () => ({
   },
 
   logout: async () => {
-    const response = await api.post("/logout");
-    return response.data;
+    return {status: true}
   },
 });
 
