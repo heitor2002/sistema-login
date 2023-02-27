@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
     const [email, setEmail] = useState<string>("")
@@ -21,6 +22,7 @@ const LoginPage = () => {
                         <label>Password:</label>
                         <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
+                    <h2>Não possuo uma conta. <Link to={"/register-page"}>Cadastrar!</Link></h2>
                     <div className="field">
                         <input type="submit" value={"Entrar"} />
                     </div>

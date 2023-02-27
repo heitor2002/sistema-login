@@ -35,6 +35,15 @@
   max-width: 300px;
 }
 
+.box-login form h2{
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.box-login form a:hover{
+  text-decoration: none;
+}
+
 .box-login form .field{
   display: flex;
   flex-direction: column;
@@ -58,6 +67,44 @@
 }
 
 .box-login form .field input[type="submit"]:hover{
+  background-color: #ccc;
+  color: rgb(18, 14, 22);
+}
+
+.container nav{
+  width: 100%;
+  max-width: 300px;
+  background-color: rgb(18, 14, 22);
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-radius: 20px 0 20px 0;
+}
+
+
+.container nav ul{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+}
+
+.container nav a{
+  text-decoration: none;
+}
+
+.container nav a li{
+  border: 1px solid #ccc;
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 10px;
+  color: #ccc;
+  transition: .3s;
+}
+
+.container nav a li:hover{
   background-color: #ccc;
   color: rgb(18, 14, 22);
 }
