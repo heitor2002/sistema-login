@@ -108,3 +108,42 @@
   background-color: #ccc;
   color: rgb(18, 14, 22);
 }
+
+.container .private-page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px 2%;
+  background-color: rgb(18, 14, 22);
+}
+
+.container .private-page h2{
+  margin-bottom: 20px;
+  color: white;
+}
+
+.container .private-page h3{
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  color: #ccc;
+  background-color: rgb(12, 10, 14);
+}
+
+.container .private-page button{
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ccc;
+  font-size: 1rem;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.container .private-page button:hover{
+  background-color: #ccc;
+  color: rgb(12, 10, 14);
+}
