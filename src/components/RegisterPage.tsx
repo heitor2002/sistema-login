@@ -57,7 +57,7 @@ const RegisterPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <h2>Já possuo uma contar. <Link to={"/login-page"}>Entrar!</Link></h2>
+            <h2>Já possuo uma conta. <Link to={"/login-page"}>Entrar!</Link></h2>
             <h2><Link to={"/"}>Voltar para página inicial!</Link></h2>
             <div className="field">
               <input type="submit" value={"Cadastrar"} />
