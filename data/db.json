@@ -2,6 +2,7 @@
   "users": [
     {
       "id": 1,
+      "username": "iaWix",
       "email": "wix@gmail.com",
       "password": "1234",
       "token": "dn1iud3bniud"

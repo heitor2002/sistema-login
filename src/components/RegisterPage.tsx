@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
+  const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [confirmEmail, setConfirmEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -24,6 +25,14 @@ const RegisterPage = () => {
         <div className="box-login">
           <h2>Página de login</h2>
           <form id="form" onSubmit={handleSubmit}>
+          <div className="field">
+              <label>Username:</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
             <div className="field">
               <label>E-mail:</label>
               <input

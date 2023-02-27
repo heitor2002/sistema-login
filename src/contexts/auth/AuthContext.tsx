@@ -1,5 +1,7 @@
-const AuthContext = () => {
-    return
+import { createContext } from "react";
+
+export type AuthContextType = {
+    user:
 }
 
-export default AuthContext;
+export const AuthContext = createContext();
