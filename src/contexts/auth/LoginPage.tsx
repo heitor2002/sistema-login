@@ -1,12 +1,22 @@
-import { FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { FormEvent, useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 
 const LoginPage = () => {
+    const auth = useContext(AuthContext)
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-    const handleSubmit = (e:FormEvent) => {
+    const navigate = useNavigate()
+    const handleSubmit = async (e:FormEvent) => {
         e.preventDefault()
-        console.log(email, password)
+        if(email && password){
+            const isLogged = await auth.signin(email, password)
+            if(isLogged){
+                navigate("/")
+            }else{
+                alert("Acesso negado!")
+            }
+        }
     }
     return (
         <>

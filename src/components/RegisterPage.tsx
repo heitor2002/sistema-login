@@ -10,7 +10,7 @@ const RegisterPage = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const token = Math.random().toString(34).substring(2)
-    const user = {email, password, token}
+    const user = {username, email, password, token}
     fetch("http://localhost:3000/users", {
         method: "POST",
         headers: {"Content-Type": "application/json"},

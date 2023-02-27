@@ -6,6 +6,13 @@
       "email": "wix@gmail.com",
       "password": "1234",
       "token": "dn1iud3bniud"
+    },
+    {
+      "username": "meuWix",
+      "email": "wix2@gmail.com",
+      "password": "1234",
+      "token": "ojhqm0vgcti",
+      "id": 2
     }
   ]
 }
