@@ -6,18 +6,26 @@ const RegisterPage = () => {
   const [email, setEmail] = useState<string>("");
   const [confirmEmail, setConfirmEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = useState<string>("")
+  const navigate = useNavigate();
+  
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const token = Math.random().toString(34).substring(2)
-    const user = {username, email, password, token}
-    fetch("http://localhost:3000/users", {
+    const token = Math.random().toString(34).substring(2);
+    const user = { username, email, password, token };
+    var errMessage: string = "";
+    if (email === confirmEmail) {
+      fetch("http://localhost:3000/users", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(user)
-    }).then(() => {
-        navigate("/")
-    })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      }).then(() => {
+        navigate("/");
+      });
+    } else {
+      console.log("E-mails incompatíveis...")
+      setErrorMessage("E-mails incompatíveis, tente novamente!")
+    }
   };
   return (
     <>
@@ -25,7 +33,7 @@ const RegisterPage = () => {
         <div className="box-login">
           <h2>Página de login</h2>
           <form id="form" onSubmit={handleSubmit}>
-          <div className="field">
+            <div className="field">
               <label>Username:</label>
               <input
                 type="text"
@@ -36,7 +44,7 @@ const RegisterPage = () => {
             <div className="field">
               <label>E-mail:</label>
               <input
-                type="text"
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -44,7 +52,7 @@ const RegisterPage = () => {
             <div className="field">
               <label>Confirmar e-mail:</label>
               <input
-                type="text"
+                type="email"
                 value={confirmEmail}
                 onChange={(e) => setConfirmEmail(e.target.value)}
               />
@@ -57,8 +65,13 @@ const RegisterPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <h2>Já possuo uma conta. <Link to={"/login-page"}>Entrar!</Link></h2>
-            <h2><Link to={"/"}>Voltar para página inicial!</Link></h2>
+            <h2 style={{color: "red"}}>{errorMessage}</h2>
+            <h2>
+              Já possuo uma conta. <Link to={"/login-page"}>Entrar!</Link>
+            </h2>
+            <h2>
+              <Link to={"/"}>Voltar para página inicial!</Link>
+            </h2>
             <div className="field">
               <input type="submit" value={"Cadastrar"} />
             </div>
